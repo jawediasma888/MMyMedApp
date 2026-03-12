@@ -1,0 +1,20 @@
+-- Table pour les patients
+--CREATE TABLE IF NOT EXISTS patient (
+    --id INT AUTO_INCREMENT PRIMARY KEY,
+    --nom VARCHAR(255) NOT NULL,
+    --prenom VARCHAR(255) NOT NULL,
+    --email VARCHAR(255) NOT NULL UNIQUE,
+    --pass1 VARCHAR(255) NOT NULL,
+    --patient VARCHAR(11) NOT NULL,
+    --date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+--) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- Table pour les médecins
+--CREATE TABLE IF NOT EXISTS medecin (
+    --id INT AUTO_INCREMENT PRIMARY KEY,
+    --nom VARCHAR(255) NOT NULL,
+    --prenom VARCHAR(255) NOT NULL,
+    --email VARCHAR(255) NOT NULL UNIQUE,
+    --pass1 VARCHAR(255) NOT NULL,
+    --medecin VARCHAR(255) NOT NULL,
+    --date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+--) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
