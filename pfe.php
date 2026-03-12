@@ -6,7 +6,7 @@ if (!$conn) {
     die("Erreur de connexion: " . mysqli_connect_error());
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $nom = $_POST['nom'];
     $prenom = $_POST['prénom'];
@@ -32,5 +32,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     
     $result = mysqli_query($conn, $check);
     
-    if (mysqli_num_rows($result) > 0) 
-        d
+    if (mysqli_num_rows($result) > 0) {
+        die("Cet email est déjà utilisé ! <a href='account.html'>Retour</a>");
+    }
+    
+    // Insertion
+    if ($role == "patient") {
+        $sql = "INSERT INTO patient (nom, prenom, email, pass1, patient) 
+                VALUES ('$nom', '$prenom', '$email', '$pass1_hash', 'patient')";
+    } else {
+        $sql = "INSERT INTO medecin (nom, prenom, email, pass1, medecin) 
+                VALUES ('$nom', '$prenom', '$email', '$pass1_hash', 'medecin')";
+    }
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Inscription réussie ! <a href='account.html'>Connectez-vous</a>";
+    } else {
+        echo "Erreur: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+} else {
+    header("Location: account.html");
+    exit();
+}
+?>
